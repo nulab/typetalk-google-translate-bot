@@ -1,28 +1,33 @@
 # Typetalk Google Translate Bot
 
-This is one of Typetalk webhook example.
+This repository contains a demo of how to use webhooks with Typetalk. 
 
-When Typetalk users post in a language other than English, this Bot try to translate in English.
-Then, this Bot reply a message translated in English.
+If a Typetalk user posts a non-English message, this Bot will attempt to translate it. If successful, the bot will then post a reply with the English translation.
 
-## How to use
+## Getting Started
 
 ### 1. Get API key from Google
 
-Refer to Google Documents for getting API key.
+Refer to the following Google documentation for instructions on how to retrieve your own API key:
 https://support.google.com/cloud/answer/6158862
+
+Save it - you'll need it later!
 
 ### 2. Clone this repository
 
-Clone this repository on an externally accessible server.
+Clone this repository on a publicly accessible server.
 
 ```
-$ git clone typetalk-google-translate
+# via SSH:
+$ git clone git@github.com:nulab/typetalk-google-translate-bot.git
+
+# via HTTPS:
+$ git clone https://github.com/nulab/typetalk-google-translate-bot.git
 ```
 
 ### 3. Run application
 
-Set Google API key you created.
+Fetch the package dependencies, set the Google API key you created earlier, then run the application.
 
 ```
 $ go get all
@@ -32,17 +37,18 @@ $ go run app.go
 
 ### 4. Create Typetalk bot
 
-Create Typetalk bot in a topic you want to translate messages.
-See more detail Typetalk document.
+Create a Typetalk bot in the **Topic** for which messages should be translated to English.
+
+For more details, refer to our Typetalk webhook documentation:
 https://developer.nulab-inc.com/docs/typetalk/#webhook
 
-Webhook URL should be you are publishing host name, and port is 12345.
+The Webhook URL should be your host name, and the port is `12345`.
 
-e.g. https://example.com:12345/
+e.g: `https://example.com:12345/`
 
-We strongly recommend you should use reverse proxy to not use the port for secure if you want to use in real.
+If you'd like to use this demo app in a real environment, we strongly recommend that you configure a reverse proxy to use a different port. (We also recommend setting up HTTPS!)
 
-### 5. Post a message not in English
+### 5. Try it out! 
 
-Try to post a message as "こんにちは".
-You can see the bot reply a message as "Hello".
+Post a non-English message, such as "こんにちは".
+If everything went well, the bot should reply with the message, "Hello"!
